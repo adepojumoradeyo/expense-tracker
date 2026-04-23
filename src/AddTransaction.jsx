@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function AddTransaction({ onAdd }) {
   const [text, setText] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
 
   const submit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ export default function AddTransaction({ onAdd }) {
     };
     onAdd(newTransaction);
 
-    setAmount(0);
+    setAmount("");
     setText("");
   };
 
@@ -24,14 +24,14 @@ export default function AddTransaction({ onAdd }) {
         <form
           action=""
           onSubmit={submit}
-          className="w-full max-w-md bg-white p-6 rounded-2xl shadow-md space-y-5"
+          className="w-full max-w-full bg-white p-6 rounded-2xl shadow-md space-y-5"
         >
           <h3 className="text-lg sm:text-xl font-semibold text-gray-800 text-center">
             Add New Transaction
           </h3>
           <div className="flex flex-col gap-1">
             <label htmlFor="text" className="text-sm text-gray-600">
-              Text{" "}
+              Desccription
             </label>
             <input
               type="text"
@@ -55,8 +55,11 @@ export default function AddTransaction({ onAdd }) {
               placeholder="enter amount"
               className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 active:scale-95 transition">
-              add
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 active:scale-95 transition"
+            >
+              Add
             </button>
           </div>
         </form>
