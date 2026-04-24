@@ -36,10 +36,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-6 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-10">
-      {/* <Header /> */}
-      <Balance balance={balance} />
-      <IncomeExpense income={income} expense={expense} />
+    <div className="min-h-screen px-4 py-6 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-5">
+      <Header name="Phoebe" />
+      <div className=" bg-blue-800 flex flex-col items-center gap-10 text-white rounded-2xl p-6 shadow-lg ">
+        <Balance balance={balance} />
+        <IncomeExpense income={income} expense={expense} />
+      </div>
       <TransactionList
         transactions={transactions}
         onDelete={deleteTransaction}

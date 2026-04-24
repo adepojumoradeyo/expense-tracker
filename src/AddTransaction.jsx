@@ -27,7 +27,7 @@ export default function AddTransaction({ onAdd }) {
           className="w-full max-w-full bg-white p-6 rounded-2xl shadow-md space-y-5"
         >
           <h3 className="text-lg sm:text-xl font-semibold text-gray-800 text-center">
-            Add New Transaction
+            Add New Expenses
           </h3>
           <div className="flex flex-col gap-1">
             <label htmlFor="text" className="text-sm text-gray-600">
@@ -57,9 +57,9 @@ export default function AddTransaction({ onAdd }) {
             />
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 active:scale-95 transition"
+              className="w-full mt-5 bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 active:scale-95 transition"
             >
-              Add
+              Save
             </button>
           </div>
         </form>
