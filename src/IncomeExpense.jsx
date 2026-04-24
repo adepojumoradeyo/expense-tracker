@@ -13,7 +13,7 @@ export default function IncomeExpense({ income, expense }) {
           />
           <div>
             <h4 className="text-sm font-bold text-white ">Income</h4>
-            <p className="text-xl font-bold text-white mt-1">{income}.00</p>
+            <p className="text-xl font-bold text-white mt-1">+{income}.00</p>
           </div>
         </div>
 

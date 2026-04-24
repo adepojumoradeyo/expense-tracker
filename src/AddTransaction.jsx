@@ -30,7 +30,7 @@ export default function AddTransaction({ onAdd }) {
             Add New Expenses
           </h3>
           <div className="flex flex-col gap-1">
-            <label htmlFor="text" className="text-sm text-gray-600">
+            <label htmlFor="text" className="text-sm">
               Desccription
             </label>
             <input
@@ -42,8 +42,8 @@ export default function AddTransaction({ onAdd }) {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label htmlFor="amount" className="text-sm text-gray-600">
-              amount
+            <label htmlFor="amount" className="text-sm">
+              Amount
               <br />
               <span className="text-xs text-gray-400">(income, - expense)</span>
             </label>

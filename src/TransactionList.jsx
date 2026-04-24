@@ -10,7 +10,11 @@ export default function TransactionList({ transactions, onDelete }) {
               className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border"
             >
               <span className="capitalize font-semibold ">{t.text}</span>
-              <span className="font-medium">${t.amount}</span>
+              <span
+                className={`font-semibold ${t.amount < 0 ? "text-red-500" : "text-black"}`}
+              >
+                {t.amount > 0 ? "+" : "-"}${Math.abs(t.amount)}.00
+              </span>
               <button
                 onClick={() => onDelete(t.id)}
                 className="text-red-500 hover:text-red-700 font-bold"
