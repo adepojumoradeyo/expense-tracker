@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function AddTransaction({ onAdd }) {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
+  const [type, setType] = useState("income");
 
   const submit = (e) => {
     e.preventDefault();
@@ -10,7 +11,7 @@ export default function AddTransaction({ onAdd }) {
     const newTransaction = {
       id: Date.now(),
       text,
-      amount: +amount,
+      amount: type === "expense" ? -Number(amount) : Number(amount),
     };
     onAdd(newTransaction);
 
@@ -20,7 +21,7 @@ export default function AddTransaction({ onAdd }) {
 
   return (
     <>
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center px-4 pb-6">
         <form
           action=""
           onSubmit={submit}
@@ -30,30 +31,38 @@ export default function AddTransaction({ onAdd }) {
             Add New Expenses
           </h3>
           <div className="flex flex-col gap-1">
-            <label htmlFor="text" className="text-sm">
-              Desccription
-            </label>
+            <label className="text-sm">Category</label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className=" outline-none cursor-pointer w-full border border-gray-200 rounded-lg px-3 py-2 bg-gray-200 "
+            >
+              <option value="income">income</option>
+              <option value="expense">expense</option>
+            </select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-sm">Desccription</label>
             <input
               type="text"
               name=""
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-200"
             />
           </div>
           <div className="flex flex-col gap-1">
             <label htmlFor="amount" className="text-sm">
               Amount
-              <br />
-              <span className="text-xs text-gray-400">(income, - expense)</span>
             </label>
+
             <input
               type="number"
               name=""
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="enter amount"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-200"
             />
             <button
               type="submit"

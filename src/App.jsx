@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import Header from "./assets/Header";
-import Balance from "./Balance";
-import IncomeExpense from "./IncomeExpense";
-import TransactionList from "./TransactionList";
-import AddTransaction from "./AddTransaction";
+import Header from "./Components/Header";
+import Balance from "./Components/Balance";
+import IncomeExpense from "./Components/IncomeExpense";
+import AddTransaction from "./Components/AddTransaction";
+import TransactionList from "./Components/TransactionList";
+import TransactionItem from "./Components/TransactionItem";
 
 export default function App() {
   const [transactions, setTransactions] = useState(() => {
@@ -36,11 +37,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen px-4 py-6 sm:px-6 md:px-10 lg:px-20 flex flex-col gap-5">
-      <Header name="Phoebe" />
-      <div className=" bg-blue-800 flex flex-col items-center gap-10 text-white rounded-2xl p-6 shadow-lg ">
-        <Balance balance={balance} />
-        <IncomeExpense income={income} expense={expense} />
+    <div className="min-h-screen sm:px-6 md:px-10 lg:px-20 flex flex-col gap-5">
+      <div className="bg-blue-800 flex flex-col gap-5 rounded-b-lg">
+        <Header />
+        <div className="px-4 py-6 -mb-12 bg-white w-11/12 self-center flex flex-col items-center gap-14  rounded-2xl shadow-lg ">
+          <Balance balance={balance} />
+          <IncomeExpense income={income} expense={expense} />
+        </div>
       </div>
       <TransactionList
         transactions={transactions}
